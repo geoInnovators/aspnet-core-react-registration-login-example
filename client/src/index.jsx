@@ -4,10 +4,13 @@ import { Provider } from 'react-redux';
 
 import { store } from './_helpers';
 import { App } from './App';
+import userManager from './_helpers/usermanager';
 
 render(
     <Provider store={store}>
-        <App />
+        <OidcProvider store={store} userManager={userManager}>
+            <App />
+        </OidcProvider>
     </Provider>,
     document.getElementById('app')
 );
